@@ -1,0 +1,9 @@
+
+
+
+<form method="POST">
+    {%csrf_token%}
+
+    <input type="text" placeholder="edit here" name="text" value="{{entry}}">
+    <button type="submit">edit</button>
+</form>

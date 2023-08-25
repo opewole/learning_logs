@@ -1,0 +1,21 @@
+
+<p>
+    <a href="{% url 'index'%}" > Learning Log</a>
+
+</p>
+
+
+{%if user.is_authenticated%}
+Hello,{{user.username}}<br>
+<a href="{%url 'logout'%}">log out</a>
+{%else%}
+<a href="{% url 'login' %}">login</a>
+<a href="{%url 'register'%}">Signup</a>
+{%endif%}
+
+
+{% block content%}
+{% endblock content%}
+
+
+

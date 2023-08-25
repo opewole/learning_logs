@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    {%load static%}
+    <link rel="stylesheet" href="{% static 'login.css' %}">
+    
+</head>
+<body>
+   
+{%block content%}
+<div class="confro">
+    <h3>LOGIN</h3> 
+
+ 
+{% if form.errors %}
+<p class="wrong">Your username and password did not match. Please try again.</P>
+{%endif%}
+
+<form method="post">
+    {%csrf_token%}
+    {{form.as_p}}
+    <div class="button">
+    <button name="submit" class="loginbutton">login</button>
+</div>
+    <input type="hidden" name="next" value="{%url 'index'%}"/>
+
+</form>
+</div>
+{%endblock content%}
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+ *{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: sans-serif;
+ }   
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.confro{
+    margin-top: 10rem;
+    margin-left: auto;
+    margin-right: auto;
+    width:350px;
+    height: 400px;
+    background-color: white;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 5px 10px;
+}
+ 
+p{
+    margin-right: 20px;
+    display: flex;
+    margin-bottom: 30px;
+  
+}
+input{
+    height: 30px;
+    width: 220px;
+    outline: none;
+    border-radius:5px;
+    border: 2px solid rgb(5, 74, 236);
+    padding-top: 10px;
+    padding-left: 5px;
+}
+
+label{
+    font-size: 15px;
+    margin-right: 6px;
+    font-weight: bold;
+}
+
+li{
+    display: none;
+}
+
+h3{
+    position: absolute;
+    top:2rem;
+    border-bottom: 2px solid rgb(0, 96, 250);
+}
+
+.wrong{
+    position: absolute;
+    bottom: 1rem;
+    font-size: 11px;
+    color: red;
+}
+.button{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.loginbutton{
+    width: 4rem;
+    height: 2rem;
+    border: 0px;
+    background-color: rgb(0, 96, 250);
+    border-radius: 3px;
+    font-weight: bolder;
+    color: white;
+    font-size: 15px;
+    letter-spacing: 1px;
+    padding-bottom: 1px;
+}
+.loginbutton:hover{
+    background-color: rgb(1, 56, 145);
+}
+
+</style>
